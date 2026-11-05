@@ -1,335 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Biblioteca Manga</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, serif;
-  color: #f5eee2;
-  background:
-    radial-gradient(ellipse at 50% 40%, #30213b, #100e18 65%);
-  text-align: center;
-}
-
-header {
-  padding: 28px 15px;
-  border-bottom: 1px solid #72552e;
-  letter-spacing: 5px;
-  font-size: 13px;
-  color: #d9b875;
-}
-
-h1 {
-  font-size: 34px;
-  letter-spacing: 3px;
-  margin: 12px 0;
-}
-
-.subtitulo {
-  color: #b8aabe;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 3px;
-}
-
-.portada {
-  width: 280px;
-  height: 390px;
-  margin: 65px auto 25px;
-  padding: 20px;
-  border: 2px solid #c6a15e;
-  border-radius: 5px 14px 14px 5px;
-  background:
-    linear-gradient(110deg, #160e1b, #4c293d 55%, #241326);
-  box-shadow:
-    -10px 0 0 #21131d,
-    0 20px 60px #000,
-    0 0 45px #b78a4930;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  transition: .5s;
-}
-
-.portada::before {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 0;
-  height: 100%;
-  border-left: 1px solid #d6b67555;
-}
-
-.portada:hover {
-  transform: translateY(-8px) rotate(-2deg);
-}
-
-.sello {
-  color: #d8b56e;
-  letter-spacing: 5px;
-  font-size: 12px;
-}
-
-.portada h2 {
-  font-size: 36px;
-  color: #f1d69d;
-  text-shadow: 0 3px 15px #000;
-}
-
-.portada p {
-  color: #d7c1ac;
-  font-size: 13px;
-  letter-spacing: 3px;
-}
-
-button {
-  border: 1px solid #c9a45d;
-  padding: 13px 23px;
-  margin: 7px;
-  background: linear-gradient(135deg, #b88b4d, #76532d);
-  color: #160f14;
-  font-weight: bold;
-  letter-spacing: 2px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: .25s;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 20px #c49a4a55;
-}
-
-button:disabled {
-  opacity: .35;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.nota {
-  color: #9f91a6;
-  font: 12px Arial, sans-serif;
-  margin: 20px;
-}
-
-#lector {
-  display: none;
-  max-width: 850px;
-  margin: 30px auto;
-  padding: 20px;
-  animation: aparecer .7s ease;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.barra {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  border-bottom: 1px solid #72552e;
-  padding: 15px 0;
-}
-
-#pagina {
-  min-height: 300px;
-  margin: 25px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: #f1e9db;
-  color: #302431;
-  border: 5px solid #b08a50;
-  padding: 15px;
-  box-shadow: 0 10px 35px #0009;
-}
-
-#pagina img {
-  max-width: 100%;
-  max-height: 70vh;
-  object-fit: contain;
-}
-
-#pagina p {
-  font-family: Arial, sans-serif;
-}
-
-#progreso {
-  color: #d8b56e;
-  font: 13px Arial, sans-serif;
-}
-
-input[type=file] {
-  display: none;
-}
-
-.cargar {
-  display: inline-block;
-  padding: 12px 18px;
-  border: 1px solid #c9a45d;
-  color: #e8d4ad;
-  cursor: pointer;
-  border-radius: 4px;
-  font: 13px Arial, sans-serif;
-}
-
-.cargar:hover {
-  background: #473347;
-}
-
-footer {
-  margin-top: 65px;
-  padding: 20px;
-  color: #85768d;
-  border-top: 1px solid #49364d;
-  font: 12px Arial, sans-serif;
-}
-
-@media(max-width:500px) {
-  h1 { font-size: 25px; }
-  .portada { width: 245px; height: 350px; }
-  #lector { padding: 10px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi manga</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: #111; color: #fff;
+      font-family: Arial, sans-serif; text-align: center;
+    }
+    header {
+      position: sticky; top: 0; z-index: 2;
+      padding: 14px 12px; background: #191919;
+      border-bottom: 1px solid #333;
+    }
+    h1 { margin: 0 0 10px; font-size: 22px; }
+    nav { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    button {
+      border: 0; border-radius: 8px; padding: 9px 15px;
+      background: #333; color: white; font-size: 15px; cursor: pointer;
+    }
+    button:hover { background: #555; }
+    main { width: min(100%, 950px); margin: 0 auto; padding: 12px 8px 35px; }
+    .pagina { display: block; width: 100%; height: auto; margin: 0 auto 12px; }
+    .nota { color: #aaa; font-size: 13px; padding: 10px; }
+  </style>
 </head>
-
 <body>
-
-<header>✦ MI BIBLIOTECA ✦</header>
-
-<main>
-  <section id="inicio">
-    <p class="subtitulo">UN MUNDO DE HISTORIAS TE ESPERA</p>
-
-    <div class="portada">
-      <span class="sello">✦ MANGA COLLECTION ✦</span>
-      <div>
-        <h2>MI MANGA</h2>
-        <p>UNA NUEVA AVENTURA</p>
-      </div>
-      <span class="sello">VOL. 01</span>
-    </div>
-
-    <h1>Tu historia comienza aquí</h1>
-    <p class="nota">Abrí el libro y descubrí otro mundo.</p>
-
-    <button onclick="abrirLibro()">ABRIR LIBRO ✦</button>
-  </section>
-
-  <section id="lector">
-    <h1>MI MANGA</h1>
-    <p class="subtitulo">LECTOR DE HISTORIAS</p>
-
-    <div class="barra">
-      <button onclick="volver()">← BIBLIOTECA</button>
-
-      <label class="cargar">
-        + CARGAR MANGA
-        <input id="archivos" type="file"
-          accept="image/*" multiple>
-      </label>
-    </div>
-
-    <div id="pagina">
-      <h2>Tu aventura comienza...</h2>
-      <p>Cargá las imágenes de tu manga para empezar a leer.</p>
-      <p>✦ ✦ ✦</p>
-    </div>
-
-    <p id="progreso">Sin páginas cargadas</p>
-
-    <div>
-      <button id="anterior" onclick="cambiar(-1)" disabled>
-        ← ANTERIOR
-      </button>
-      <button id="siguiente" onclick="cambiar(1)" disabled>
-        SIGUIENTE →
-      </button>
-    </div>
-  </section>
-</main>
-
-<footer>
-  ✦ MI MANGA · UN UNIVERSO DE HISTORIAS ✦
-</footer>
-
-<script>
-let paginas = [];
-let actual = 0;
-
-function abrirLibro() {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("lector").style.display = "block";
-  window.scrollTo(0, 0);
-}
-
-function volver() {
-  document.getElementById("lector").style.display = "none";
-  document.getElementById("inicio").style.display = "block";
-  window.scrollTo(0, 0);
-}
-
-document.getElementById("archivos").addEventListener("change", function() {
-  paginas.forEach(URL.revokeObjectURL);
-
-  paginas = Array.from(this.files)
-    .sort((a, b) => a.name.localeCompare(b.name, undefined, {numeric:true}))
-    .map(file => URL.createObjectURL(file));
-
-  actual = 0;
-  mostrar();
-});
-
-function mostrar() {
-  const pagina = document.getElementById("pagina");
-
-  if (paginas.length === 0) return;
-
-  pagina.innerHTML = "";
-
-  const imagen = document.createElement("img");
-  imagen.src = paginas[actual];
-  imagen.alt = "Página de manga " + (actual + 1);
-
-  pagina.appendChild(imagen);
-
-  document.getElementById("progreso").textContent =
-    "PÁGINA " + (actual + 1) + " / " + paginas.length;
-
-  document.getElementById("anterior").disabled = actual === 0;
-  document.getElementById("siguiente").disabled =
-    actual === paginas.length - 1;
-}
-
-function cambiar(direccion) {
-  actual += direccion;
-  mostrar();
-}
-
-document.addEventListener("keydown", function(e) {
-  if (document.getElementById("lector").style.display !== "block") return;
-
-  if (e.key === "ArrowRight" && actual < paginas.length - 1) cambiar(1);
-  if (e.key === "ArrowLeft" && actual > 0) cambiar(-1);
-});
-</script>
-
+  <header>
+    <h1>Mi manga</h1>
+    <nav>
+      <button onclick="document.getElementById('pagina1').scrollIntoView({behavior:'smooth'})">Página 1</button>
+      <button onclick="document.getElementById('pagina2').scrollIntoView({behavior:'smooth'})">Página 2</button>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Volver arriba ↑</button>
+    </nav>
+  </header>
+  <main>
+    <img id="pagina1" class="pagina" src="imagenes/pagina-1.png" alt="Página 1 del manga">
+    <img id="pagina2" class="pagina" src="imagenes/pagina-2.png" alt="Página 2 del manga">
+    <div class="nota">Fin de las páginas disponibles.</div>
+  </main>
 </body>
 </html>
